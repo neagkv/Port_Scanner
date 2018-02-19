@@ -1,10 +1,11 @@
 package com.application.PortScanner.configuration;
 
-import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+
+import javax.servlet.annotation.WebServlet;
 
 
 /**
