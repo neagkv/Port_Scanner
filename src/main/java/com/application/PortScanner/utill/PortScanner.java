@@ -7,6 +7,8 @@ import java.net.Socket;
 /**
  * @author Kevin Neag
  */
+
+
 public class PortScanner {
 
     public void scan() throws Exception {
