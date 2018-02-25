@@ -7,6 +7,9 @@ import com.application.PortScanner.model.Port;
  */
 public interface PortService {
 
-    Iterable<Port> scanPorts();
+    Iterable<Port> listAllPorts();
+
+    Port getPortByNum(Integer portNum);
+
 
 }

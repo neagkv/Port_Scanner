@@ -21,7 +21,12 @@ public class PortServiceImpl implements PortService {
     }
 
     @Override
-    public Iterable<Port> scanPorts() {
+    public Iterable<Port> listAllPorts() {
+        return null;
+    }
+
+    @Override
+    public Port getPortByNum(Integer portNum) {
         return null;
     }
 

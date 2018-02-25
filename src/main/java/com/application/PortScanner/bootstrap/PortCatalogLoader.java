@@ -32,6 +32,8 @@ public class PortCatalogLoader {
         port.setService("HTTP Proxy");
         port.setDescription("localhost");
         portRepository.save(port);
+
+        log.info("Saved Port - : " + port.getPortNum());
     }
 
 
