@@ -11,5 +11,7 @@ public interface PortService {
 
     Port getPortByNum(Integer portNum);
 
+    Port savePort(Port port);
+
 
 }

@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author Kevin Neag
  */
+
+
 @Configuration
 public class WebConfiguration {
 

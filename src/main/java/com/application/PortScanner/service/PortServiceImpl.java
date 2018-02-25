@@ -30,4 +30,11 @@ public class PortServiceImpl implements PortService {
         return null;
     }
 
+    @Override
+    public Port savePort(Port port) {
+        return portRepository.save(port);
+    }
+
+
+
 }

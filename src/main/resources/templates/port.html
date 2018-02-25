@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Port Scanner</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(port)}">
+        <h2>Port List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>portNum</th>
+            </tr>
+            <tr th:each="port : ${port}">
+                <td th:text="${port.portNum}"><a href="/port/${port.portNum}">portNum</a></td>
+                <td><a th:href="${ '/port/' + port.portNum}">View</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

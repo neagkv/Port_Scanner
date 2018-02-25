@@ -28,12 +28,12 @@ public class PortCatalogLoader {
 
         Port port = new Port();
         port.setPortNum(8080);
-        port.setRunning(true);
-        port.setService("HTTP Proxy");
-        port.setDescription("localhost");
-        portRepository.save(port);
-
-        log.info("Saved Port - : " + port.getPortNum());
+//        port.setRunning(true);
+//        port.setService("HTTP Proxy");
+//        port.setDescription("localhost");
+//        portRepository.save(port);
+//
+//        log.info("Saved Port - : " + port.getPortNum());
     }
 
 
