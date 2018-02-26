@@ -26,14 +26,12 @@ public class PortCatalogLoader {
 
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
-        Port port = new Port();
-        port.setPortNum(8080);
-//        port.setRunning(true);
-//        port.setService("HTTP Proxy");
-//        port.setDescription("localhost");
-//        portRepository.save(port);
-//
-//        log.info("Saved Port - : " + port.getPortNum());
+        Port http = new Port();
+        http.setPortNum(8080);
+        http.setName("HTTP Proxy");
+        http.setDescription("alternative web server");
+        portRepository.save(http);
+        log.info("Saved Http - id : " + http.getId());
     }
 
 

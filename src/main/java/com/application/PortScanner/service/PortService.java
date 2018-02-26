@@ -9,7 +9,7 @@ public interface PortService {
 
     Iterable<Port> listAllPorts();
 
-    Port getPortByNum(Integer portNum);
+    Port getPortById(Integer id);
 
     Port savePort(Port port);
 

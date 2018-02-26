@@ -22,12 +22,12 @@ public class PortServiceImpl implements PortService {
 
     @Override
     public Iterable<Port> listAllPorts() {
-        return null;
+        return portRepository.findAll();
     }
 
     @Override
-    public Port getPortByNum(Integer portNum) {
-        return null;
+    public Port getPortById(Integer id) {
+        return portRepository.findOne(id);
     }
 
     @Override
