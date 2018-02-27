@@ -52,7 +52,7 @@ public class PortController {
     }
 
     @RequestMapping("port/new")
-    public String newProduct(Model model){
+    public String newPort(Model model){
         model.addAttribute("port", new Port());
         return "portform";
     }
