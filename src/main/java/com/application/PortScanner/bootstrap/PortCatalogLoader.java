@@ -32,6 +32,13 @@ public class PortCatalogLoader {
         http.setDescription("alternative web server");
         portRepository.save(http);
         log.info("Saved Http - id : " + http.getId());
+
+        Port mysql = new Port();
+        mysql.setPortNum(3306);
+        mysql.setName("Mysql");
+        mysql.setDescription("Database");
+        portRepository.save(mysql);
+        log.info("Saved Mysql - id : " + mysql.getId());
     }
 
 
