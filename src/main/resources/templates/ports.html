@@ -17,12 +17,16 @@
                 <th>Port Number</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>View</th>
+                <th>Edit</th>
             </tr>
             <tr th:each="port : ${ports}">
                 <td th:text="${port.id}"><a href="/port/${port.id}">Id</a></td>
                 <td th:text="${port.portNum}">Port Number</td>
                 <td th:text="${port.name}">Name</td>
                 <td th:text="${port.description}">Description</td>
+                <td><a th:href="${ '/port/' + port.id}">View</a></td>
+                <td><a th:href="${'/port/edit/' + port.id}">Edit</a></td>
 
             </tr>
         </table>

@@ -45,4 +45,16 @@ public class PortController {
         return "redirect:/port/" + port.getId();
     }
 
+    @RequestMapping("port/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model){
+        model.addAttribute("port", portService.getPortById(id));
+        return "portform";
+    }
+
+    @RequestMapping("port/new")
+    public String newProduct(Model model){
+        model.addAttribute("port", new Port());
+        return "portform";
+    }
+
 }
