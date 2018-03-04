@@ -3,6 +3,7 @@ package com.application.PortScanner.utill;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  * @author Kevin Neag
@@ -11,10 +12,11 @@ import java.net.Socket;
 
 public class PortScanner {
 
-    public void scan() throws Exception {
+    ArrayList<Integer> portsList;
+
+    public ArrayList<Integer> scan() throws Exception {
 
         String host = "localhost";
-
         InetAddress inetAddress = InetAddress.getByName(host);
 
         String hostName = inetAddress.getHostName();
@@ -22,12 +24,11 @@ public class PortScanner {
             try {
                 Socket socket = new Socket(hostName, port);
                 String text = hostName + " is listening on port " + port;
-                System.out.println(text);
+                portsList.add(port);
                 socket.close();
             } catch (IOException e) {
-                String s = hostName + " is not listening on port " + port;
-                System.out.println(s);
             }
         }
+        return portsList;
     }
 }

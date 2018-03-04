@@ -2,6 +2,7 @@ package com.application.PortScanner.service;
 
 import com.application.PortScanner.model.Port;
 import com.application.PortScanner.repository.PortRepository;
+import com.application.PortScanner.utill.PortScanner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,12 +32,10 @@ public class PortServiceImpl implements PortService {
         return portRepository.findOne(id);
     }
 
-
     @Override
     public Port savePort(Port port) {
         return portRepository.save(port);
     }
-
 
 
 }

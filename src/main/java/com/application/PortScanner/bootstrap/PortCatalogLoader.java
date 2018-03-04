@@ -44,6 +44,5 @@ public class PortCatalogLoader implements ApplicationListener<ContextRefreshedEv
         portRepository.save(mysql);
         log.info("Saved Mysql - id : " + mysql.getId());
     }
-
-
 }
+

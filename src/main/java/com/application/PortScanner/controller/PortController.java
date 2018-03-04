@@ -2,6 +2,7 @@ package com.application.PortScanner.controller;
 
 import com.application.PortScanner.model.Port;
 import com.application.PortScanner.service.PortService;
+import com.application.PortScanner.utill.PortScanner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +18,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PortController {
 
     private PortService portService;
+    private PortScanner portScanner;
 
     @Autowired
     public void setPortService(PortService portService) {
         this.portService = portService;
     }
 
+    @RequestMapping(value = "/ports/scan", method =RequestMethod.GET)
+    public String scan(Model model){
+        model.addAttribute("scan",portService.scan());
+        System.out.println("scanning ports");
+        return "scan";
+    }
 
     @RequestMapping(value = "/ports", method = RequestMethod.GET)
     public String list(Model model){
@@ -39,9 +47,7 @@ public class PortController {
 
     @RequestMapping(value = "port", method = RequestMethod.POST)
     public String savePort(Port port){
-
         portService.savePort(port);
-
         return "redirect:/port/" + port.getId();
     }
 
