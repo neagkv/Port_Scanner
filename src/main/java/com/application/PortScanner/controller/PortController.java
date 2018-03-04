@@ -32,13 +32,13 @@ public class PortController {
     }
 
     @RequestMapping("port/{id}")
-    public String showProduct(@PathVariable Integer id, Model model){
+    public String showPort(@PathVariable Integer id, Model model){
         model.addAttribute("port", portService.getPortById(id));
         return "portshow";
     }
 
     @RequestMapping(value = "port", method = RequestMethod.POST)
-    public String saveProduct(Port port){
+    public String savePort(Port port){
 
         portService.savePort(port);
 

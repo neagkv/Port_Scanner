@@ -2,6 +2,7 @@ package com.application.PortScanner.bootstrap;
 
 import com.application.PortScanner.model.Port;
 import com.application.PortScanner.repository.PortRepository;
+import com.application.PortScanner.utill.PortScanner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -18,6 +19,8 @@ public class PortCatalogLoader implements ApplicationListener<ContextRefreshedEv
     private PortRepository portRepository;
 
     private Logger log = Logger.getLogger(PortCatalogLoader.class);
+
+    private PortScanner portScanner = new PortScanner();
 
     @Autowired
     public void setPortRepository(PortRepository portRepository) {
