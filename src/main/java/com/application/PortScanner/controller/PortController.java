@@ -25,10 +25,8 @@ public class PortController {
         this.portService = portService;
     }
 
-    @RequestMapping(value = "/ports/scan", method =RequestMethod.GET)
-    public String scan(Model model){
-        model.addAttribute("scan",portService.scan());
-        System.out.println("scanning ports");
+    @RequestMapping(value ="/scan", method = RequestMethod.GET)
+    String scan(){
         return "scan";
     }
 

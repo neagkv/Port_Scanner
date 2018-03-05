@@ -3,6 +3,8 @@ package com.application.PortScanner.service;
 import com.application.PortScanner.model.Port;
 import com.application.PortScanner.utill.PortScanner;
 
+import java.util.ArrayList;
+
 /**
  * @author Kevin Neag
  */
