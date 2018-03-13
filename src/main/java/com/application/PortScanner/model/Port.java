@@ -1,5 +1,8 @@
 package com.application.PortScanner.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 /**
@@ -15,10 +18,10 @@ public class Port {
 
     @Version
     private Integer version;
-
     private Integer portNum;
     private String name;
     private String description;
+
 
     public Integer getId() {
         return id;

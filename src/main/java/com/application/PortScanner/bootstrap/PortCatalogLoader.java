@@ -9,6 +9,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+
 /**
  * @author Kevin Neag
  */
@@ -20,7 +22,6 @@ public class PortCatalogLoader implements ApplicationListener<ContextRefreshedEv
 
     private Logger log = Logger.getLogger(PortCatalogLoader.class);
 
-    private PortScanner portScanner = new PortScanner();
 
     @Autowired
     public void setPortRepository(PortRepository portRepository) {

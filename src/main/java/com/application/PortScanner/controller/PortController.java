@@ -18,16 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PortController {
 
     private PortService portService;
-    private PortScanner portScanner;
-
     @Autowired
     public void setPortService(PortService portService) {
         this.portService = portService;
-    }
-
-    @RequestMapping(value ="/scan", method = RequestMethod.GET)
-    String scan(){
-        return "scan";
     }
 
     @RequestMapping(value = "/ports", method = RequestMethod.GET)
