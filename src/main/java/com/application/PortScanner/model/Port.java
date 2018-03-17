@@ -9,6 +9,10 @@ import javax.persistence.*;
  * @author Kevin Neag
  */
 
+
+/**
+ * Pojo class for ports
+ */
 @Entity
 public class Port {
 
