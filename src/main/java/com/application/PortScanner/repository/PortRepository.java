@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * @author Kevin Neag
  */
-public interface PortRepository extends CrudRepository<Port, Integer>{
+public interface PortRepository extends CrudRepository<Port, Long>{
 }

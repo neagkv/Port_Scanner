@@ -9,8 +9,6 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
-
 /**
  * @author Kevin Neag
  */
@@ -19,9 +17,13 @@ import java.util.ArrayList;
 public class PortCatalogLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     private PortRepository portRepository;
-
+    private PortScanner portScanner;
     private Logger log = Logger.getLogger(PortCatalogLoader.class);
 
+    public PortCatalogLoader(PortRepository portRepository, PortScanner portScanner) {
+        this.portRepository = portRepository;
+        this.portScanner = portScanner;
+    }
 
     @Autowired
     public void setPortRepository(PortRepository portRepository) {
@@ -38,12 +40,21 @@ public class PortCatalogLoader implements ApplicationListener<ContextRefreshedEv
         portRepository.save(http);
         log.info("Saved Http - id : " + http.getId());
 
-        Port mysql = new Port();
-        mysql.setPortNum(3306);
-        mysql.setName("MySQL");
-        mysql.setDescription("Database");
-        portRepository.save(mysql);
-        log.info("Saved Mysql - id : " + mysql.getId());
+        Port intellij = new Port();
+        intellij.setPortNum(63342);
+        intellij.setName("IntelliJ");
+        intellij.setDescription("IDEA");
+        portRepository.save(intellij);
+        log.info("Saved Mysql - id : " + intellij.getId());
+
+        try {
+            portScanner.scan();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
     }
+
 }
 

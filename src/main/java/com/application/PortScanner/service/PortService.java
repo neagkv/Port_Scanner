@@ -15,7 +15,7 @@ public interface PortService {
 
     Iterable<Port> listAllPorts();
 
-    Port getPortById(Integer id);
+    Port getPortById(Long id);
 
     Port savePort(Port port);
 
