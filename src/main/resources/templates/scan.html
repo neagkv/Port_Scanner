@@ -50,7 +50,7 @@
                             <tr th:each="port : ${ports}">
                                 <td th:text="${port.id}">3</td>
                                 <td th:text="${port.description}">Port 3</td>
-                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show'}">View</a></td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${port.id} + '/show'}">View</a></td>
                             </tr>
                         </table>
                     </div>
