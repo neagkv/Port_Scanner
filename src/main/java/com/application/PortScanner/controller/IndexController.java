@@ -16,6 +16,4 @@ public class IndexController {
         log.debug("Getting Index page");
         return "index";
     }
-
-
 }
