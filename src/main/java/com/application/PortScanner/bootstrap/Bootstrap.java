@@ -5,7 +5,6 @@ import com.application.PortScanner.repository.PortRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -21,7 +20,8 @@ import java.util.concurrent.*;
 public class Bootstrap implements CommandLineRunner {
 
 
-    PortRepository portRepository;
+    private PortRepository portRepository;
+
     List<Port> portList = new ArrayList<>();
 
     public Bootstrap(PortRepository portRepository) {
@@ -68,12 +68,6 @@ public class Bootstrap implements CommandLineRunner {
         log.debug("There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
                 + timeout + "ms)");
 
-//        for(final Future<Port> openFuture : openFutures){
-//            long id =1;
-//            Port port1 = new Port(id,openFuture.get().getPortNum(),true);
-//            portList.add(port1);
-//            log.debug(portList.toString());
-//            id++;
 
     }
 
