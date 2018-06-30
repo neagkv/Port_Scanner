@@ -1,7 +1,7 @@
 package com.application.PortScanner.bootstrap;
 
 import com.application.PortScanner.domain.Port;
-import com.application.PortScanner.reposiotory.PortRepository;
+import com.application.PortScanner.repository.PortRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -20,10 +20,13 @@ import java.util.concurrent.*;
 @Component
 public class Bootstrap implements CommandLineRunner {
 
-    private PortRepository portRepository;
-    private ArrayList<Port> portList;
 
+    PortRepository portRepository;
+    List<Port> portList = new ArrayList<>();
 
+    public Bootstrap(PortRepository portRepository) {
+        this.portRepository = portRepository;
+    }
 
     @Override
     public void run(String... args) throws Exception {
@@ -40,7 +43,7 @@ public class Bootstrap implements CommandLineRunner {
         final List<Future<Port>> openFutures = new ArrayList<>();
         log.debug("Starting Scan");
         //for each port
-        for (int port = 22; port <= 23; port++) {
+        for (int port = 22; port <= 2300; port++) {
             //futures add to see if port is open
             futures.add(portIsOpen(es, ip, port, timeout));
         }
@@ -51,13 +54,16 @@ public class Bootstrap implements CommandLineRunner {
         for (final Future<Port> f : futures)
             //if the port is open
             if (f.get().isOpen()) {
-            openFutures.add(f);
+
+                openFutures.add(f);
+                portList.add(f.get());
 
                 //print out the value of port
                 log.debug(String.valueOf(f.get().getPortNum()));
                 openPorts++;
 
             }
+            log.debug("port List: " + portList.spliterator().trySplit().toString());
 
         log.debug("There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
                 + timeout + "ms)");
@@ -90,7 +96,9 @@ public class Bootstrap implements CommandLineRunner {
 
     }
 
-    }
+}
+
+
 
 
 
