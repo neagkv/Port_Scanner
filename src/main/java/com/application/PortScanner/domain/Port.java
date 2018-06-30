@@ -3,10 +3,7 @@ package com.application.PortScanner.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 /**
@@ -21,19 +18,11 @@ public class Port {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Port portNum;
-    private boolean portIsOpen;
+    private int portNum;
+    private boolean isOpen;
 
-    public Port(Port portNum, Boolean portIsOpen) {
-        this.id = id;
+    public Port(int portNum, boolean isOpen) {
         this.portNum = portNum;
-        this.portIsOpen = portIsOpen;
-    }
-
-    public Port(Port portNum) {
-        this.portNum = portNum;
-    }
-
-    public Port(int port) {
+        this.isOpen = isOpen;
     }
 }
